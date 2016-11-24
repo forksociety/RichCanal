@@ -1,0 +1,22 @@
+{
+  "name": "RichCanal",
+  "description": "All chatbots at one place.",
+  "repository": "https://github.com/nirmankarta/RichCanal",
+  "logo": "https://github.com/nirmankarta/RichCanal",
+  "keywords": [
+      "chatbot",
+      "slack",
+      "line"
+  ],
+  "image": "heroku/nodejs",
+  "env": {
+      "AUTH_TOKEN_LINE": {
+          "description": "LINE Messenger Token",
+          "generator": "secret"
+      },
+      "WEBHOOK_LINE": {
+          "description": "Webhook for LINE Messenger",
+          "value": "webhook_line"
+      }
+  }
+}
