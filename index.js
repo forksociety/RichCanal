@@ -21,7 +21,9 @@ app.set('view engine', 'ejs');
 function replyBack(token, msg) {
     // multiline message
     console.log('msg:',msg);
-    msg = msg.replace(/\n/g, " ");
+    if(msg !== undefined) {
+        msg = msg.replace(/\n/g, " ");
+    }
     var queryUrl = 'http://api.asksusi.com/susi/chat.json?q=' + encodeURI(msg);
     var message = '',
     options = {
