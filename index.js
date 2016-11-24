@@ -20,7 +20,6 @@ app.set('view engine', 'ejs');
 
 function replyBack(token, msg) {
     // multiline message
-    console.log('msg:',msg);
     if(msg !== undefined) {
         msg = msg.replace(/\n/g, " ");
     }
