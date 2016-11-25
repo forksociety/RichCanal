@@ -20,7 +20,9 @@ app.set('view engine', 'ejs');
 
 function replyBack(token, msg) {
     // multiline message
-    msg = msg.replace(/\n/g, " ");
+    if(msg !== undefined) {
+        msg = msg.replace(/\n/g, " ");
+    }
     var queryUrl = 'http://api.asksusi.com/susi/chat.json?q=' + encodeURI(msg);
     var message = '',
     options = {
@@ -45,8 +47,6 @@ function replyBack(token, msg) {
             }
             ]
         };
-        console.log('Token:', e.replyToken);
-        console.log('Message:', message);
         var options = {
             uri: 'https://api.line.me/v2/bot/message/reply',
             method: 'POST',
@@ -59,7 +59,8 @@ function replyBack(token, msg) {
 
         request(options, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log('Send');
+                console.log('Token:', e.replyToken);
+                console.log('Sent:', message);
             }
         });
     });
